@@ -1,6 +1,6 @@
 import sys
 
-from handlers import snip
+from handlers import snip, upload
 from PyQt5.QtWidgets import QApplication, QMainWindow
 
 class Snaptivate(QMainWindow):

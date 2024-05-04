@@ -1,11 +1,9 @@
 import sys, tempfile
 
+from handlers import upload, search
 from PyQt5.QtCore import Qt, QPoint, QRect
 from PyQt5.QtWidgets import QWidget, QRubberBand, QApplication
 from PyQt5.QtGui import QMouseEvent, QKeyEvent
-
-# Configuration
-file_name = "snaptivate-snip"
 
 class Capture(QWidget):
     def __init__(self, main_window):
@@ -45,13 +43,12 @@ class Capture(QWidget):
             self.imgmap = self.imgmap.copy(rect)
             QApplication.restoreOverrideCursor()
 
-            image_path = f"{tempfile.gettempdir()}/{file_name}.jpg"
+            image_path = f"{tempfile.gettempdir()}/snaptivate-snip.jpg"
             self.imgmap.save(image_path)
 
             print("Debug: Saved the screenshot succesfully!")
             self.hide()
-            #TODO: add the upload logic
-            self.close()
+            upload.start()
     
     def keyPressEvent(self, event: QKeyEvent) -> None:
         if event.key() == Qt.Key_Escape:
