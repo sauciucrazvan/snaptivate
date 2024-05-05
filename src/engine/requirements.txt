@@ -1,0 +1,4 @@
+pyyaml
+requests
+webbrowser
+pyqt5
