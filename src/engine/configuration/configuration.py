@@ -9,7 +9,7 @@ defaultConfig = """# Snaptivate configuration.yaml file
 IMGBB_API_KEY: \"\"
 """
 
-def getConfigurationValue(value: str) -> object:
+def getValue(value: str) -> object:
     # Creates the directory if it's not already
     directory = os.path.join(os.path.expanduser('~'), 'Documents', 'Snaptivate')
     if not os.path.exists(directory):
