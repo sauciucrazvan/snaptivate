@@ -1,6 +1,7 @@
-import sys, tempfile
+import os, sys
 
-from handlers import upload, search
+from processes import upload
+
 from PyQt5.QtCore import Qt, QPoint, QRect
 from PyQt5.QtWidgets import QWidget, QRubberBand, QApplication
 from PyQt5.QtGui import QMouseEvent, QKeyEvent
@@ -14,7 +15,7 @@ class Capture(QWidget):
         desk_size = QApplication.desktop()
         self.setGeometry(0, 0, desk_size.width(), desk_size.height())
         self.setWindowFlags(self.windowFlags() | Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
-        self.setWindowOpacity(0.15)
+        self.setWindowOpacity(0.10)
 
         self.rubber_band = QRubberBand(QRubberBand.Rectangle, self)
         self.origin = QPoint()
@@ -43,7 +44,11 @@ class Capture(QWidget):
             self.imgmap = self.imgmap.copy(rect)
             QApplication.restoreOverrideCursor()
 
-            image_path = f"{tempfile.gettempdir()}/snaptivate-snip.jpg"
+            image_dir = os.path.join(os.path.expanduser('~'), 'Documents', 'Snaptivate')
+            if not os.path.exists(image_dir):
+                os.makedirs(image_dir)
+
+            image_path = os.path.join(image_dir, 'latest.jpg')
             self.imgmap.save(image_path)
 
             print("Debug: Saved the screenshot succesfully!")

@@ -1,6 +1,6 @@
 import sys
 
-from handlers import snip, upload
+from processes import snip
 from PyQt5.QtWidgets import QApplication, QMainWindow
 
 class Snaptivate(QMainWindow):
@@ -11,7 +11,7 @@ class Snaptivate(QMainWindow):
         # Window configuration
         self.setWindowTitle("Snaptivate")
 
-        # Snipping action
+        # Snipping process
         self.capturer = snip.Capture(self)
         self.capturer.show()
 
