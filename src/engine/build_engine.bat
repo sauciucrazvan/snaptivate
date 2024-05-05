@@ -1,0 +1,1 @@
+pyinstaller snaptivate_engine.py --noconsole --noconfirm
