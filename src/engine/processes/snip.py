@@ -51,7 +51,6 @@ class Capture(QWidget):
             image_path = os.path.join(image_dir, 'latest.jpg')
             self.imgmap.save(image_path)
 
-            print("Debug: Saved the screenshot succesfully!")
             self.hide()
             upload.start()
     

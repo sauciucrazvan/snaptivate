@@ -5,8 +5,9 @@ defaultConfig = """# Snaptivate configuration.yaml file
 # Provide the API key that you'll get when you access the following link:
 # https://api.imgbb.com/
 # Make sure that you are logged in first! Example:
-# IMGBB_API_KEY: \"abcdefghjkl\"
-IMGBB_API_KEY: \"\"
+# api_key: \"abcdefghjkl\"
+api_key: \"\"
+
 """
 
 def getValue(value: str) -> object:
