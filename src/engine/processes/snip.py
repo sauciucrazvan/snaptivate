@@ -15,7 +15,7 @@ class Capture(QWidget):
         desk_size = QApplication.desktop()
         self.setGeometry(0, 0, desk_size.width(), desk_size.height())
         self.setWindowFlags(self.windowFlags() | Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
-        self.setWindowOpacity(0.10)
+        self.setWindowOpacity(0.10) # TODO: Should remove the opacity when the screenshot is taken
 
         self.rubber_band = QRubberBand(QRubberBand.Rectangle, self)
         self.origin = QPoint()

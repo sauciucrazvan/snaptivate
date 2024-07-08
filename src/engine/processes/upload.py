@@ -1,4 +1,4 @@
-import requests, os
+import requests, os, re
 
 from dialogs import error
 from processes import search
@@ -26,6 +26,7 @@ def start() -> None:
             search.start(json_response["data"]["url"])
         else:
             config_file_location = f"{os.path.expanduser('~').replace('\\', '/')}/Documents/Snaptivate"
-            error.show_error_dialog(f"Couldn't access the ImgBB API; make sure you've provided the correct API key.\n\nProvide your API key in the configuration.yaml file, located in:\n{config_file_location}")
+            error.show_error_dialog(f"Couldn't access the ImgBB API! Make sure you've provided the correct API key.\n\nProvide your API key in the configuration.yaml file, located in:\n{config_file_location}")
     except requests.ConnectionError as exception:
-        error.show_error_dialog(f"An error occured! Make sure you're connected to the internet.\n\nDetails:\n{exception}")
+        exception_message = re.sub(r'key=[^&]*&?', '', str(exception))
+        error.show_error_dialog(f"An error occured! Make sure you're connected to the internet.\n\nException:\n{exception_message}")
