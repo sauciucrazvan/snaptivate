@@ -1,13 +1,15 @@
 import yaml, os
 
 defaultConfig = """# Snaptivate configuration.yaml file
+# Don't mess around too much if you don't know what you're doing.
 
 # Provide the API key that you'll get when you access the following link:
 # https://api.imgbb.com/
 # Make sure that you are logged in first! Example:
-# api_key: \"abcdefghjkl\"
+# api_key: \"abcdefghijkl\"
 api_key: \"\"
 
+# EOF
 """
 
 def getValue(value: str) -> object:
