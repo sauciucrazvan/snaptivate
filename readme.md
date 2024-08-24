@@ -1,2 +1,1 @@
-﻿##### Snaptivate's source code
-###### Closed repository. Do not share with anyone!
+﻿##### Snaptivate's source code - Under construction.
